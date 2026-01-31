@@ -24,6 +24,14 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/list/basicList/index.vue'),
       },
       {
+        path: 'user-list',
+        name: 'user-list',
+        meta: {
+          title: 'user基础列表',
+        },
+        component: () => import('@/views/list/user/index.vue'),
+      },
+      {
         path: 'basic-info/:id?',
         name: 'basic-info',
         meta: {

@@ -67,11 +67,14 @@ export const useUserStore = defineStore({
       const { result, code } = response;
       if (code === ResultEnum.SUCCESS) {
         const ex = 7 * 24 * 60 * 60;
-        storage.set(ACCESS_TOKEN, result.token, ex);
+        storage.set(ACCESS_TOKEN, 'result.token', ex);
         storage.set(CURRENT_USER, result, ex);
         storage.set(IS_SCREENLOCKED, false);
-        this.setToken(result.token);
-        this.setUserInfo(result);
+        this.setToken('result.token');
+        this.setUserInfo({
+          username: result.nick_name,
+          email: `${result.phone}@qq.com`,
+        });
       }
       return response;
     },
